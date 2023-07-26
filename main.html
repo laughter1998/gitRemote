@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Circle Progress Bar Example</title>
+</head>
+<body>
+    <div id="circleProgress" style="width: 100px; height: 100px;"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/progressbar.js/1.1.0/progressbar.min.js"></script>
+    <script>
+        
+            // 원형 프로그레스 바를 생성할 대상 요소를 선택합니다.
+            const circleProgress = document.getElementById("circleProgress");
+
+            // ProgressBar.js를 이용하여 원형 프로그레스 바를 생성합니다.
+            const progress = new ProgressBar.Circle(circleProgress, {
+                strokeWidth: 6, // 프로그레스 바의 두께 설정
+                easing: "easeInOut", // 애니메이션 효과 설정
+                duration: 500, // 애니메이션 지속 시간(ms)
+                color: "#007bff", // 프로그레스 바 색상 설정
+                trailColor: "#ddd", // 배경 선 색상 설정
+                trailWidth: 5, // 배경 선 두께 설정
+                text: {
+                    value: "0%", // 프로그레스 바에 표시될 텍스트 초기값
+                },
+            });
+            
+            // 프로그레스 바 퍼센트를 설정하는 함수
+            function setProgress(percent) {
+                progress.setText(percent + "%"); // 프로그레스 바에 퍼센트 표시
+                progress.animate(0.3);  // Number from 0.0 to 1.0
+            }
+
+            // 예시로 50%로 설정해보겠습니다.
+            setProgress(30);
+       
+        
+    </script>
+</body>
+</html>
